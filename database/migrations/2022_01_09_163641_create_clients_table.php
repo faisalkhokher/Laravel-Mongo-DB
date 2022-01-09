@@ -1,10 +1,10 @@
-<?php
+`<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMongosTable extends Migration
+class CreateClientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateMongosTable extends Migration
      */
     public function up()
     {
-        Schema::create('mongos', function (Blueprint $table) {
-            // $table->id();
-            $table->string('name');
+        Schema::create('clients', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('mongo_id');
+            $table->string('name');  
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateMongosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mongos');
+        Schema::dropIfExists('clients');
     }
 }
